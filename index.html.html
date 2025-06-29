@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Digital Descomplicado - Transforme seu Pequeno Negócio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.3);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.2em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero .subtitle {
+            font-size: 1.4em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .price-highlight {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 40px auto;
+            max-width: 500px;
+            border: 1px solid rgba(255,255,255,0.2);
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            font-size: 1.5em;
+            opacity: 0.7;
+            margin-bottom: 10px;
+        }
+
+        .new-price {
+            font-size: 3em;
+            font-weight: bold;
+            color: #FFD700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .discount-badge {
+            background: #ff4757;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 15px;
+            animation: pulse 2s infinite;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #00d2d3, #54a0ff);
+            color: white;
+            padding: 20px 40px;
+            font-size: 1.3em;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 30px 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #2c3e50;
+        }
+
+        .benefits {
+            background: #f8f9fa;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .benefit-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #667eea;
+        }
+
+        .modules {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .module-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .module-title {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            color: #FFD700;
+        }
+
+        .testimonials {
+            background: #2c3e50;
+            color: white;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .testimonial {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #FFD700;
+        }
+
+        .testimonial-author {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #FFD700;
+        }
+
+        .guarantee {
+            background: #27ae60;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .guarantee-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 30px;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 20px;
+        }
+
+        .timer {
+            background: #e74c3c;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 1.5em;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+        }
+
+        .countdown-item {
+            text-align: center;
+        }
+
+        .countdown-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            display: block;
+        }
+
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2em; }
+            .hero .subtitle { font-size: 1.1em; }
+            .countdown { flex-wrap: wrap; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Marketing Digital Descomplicado</h1>
+            <p class="subtitle">O Método Definitivo para Transformar seu Pequeno Negócio em uma Máquina de Vendas Online</p>
+            
+            <div class="price-highlight">
+                <div class="old-price">De R$ 497,00</div>
+                <div class="new-price">R$ 97,00</div>
+                <div class="discount-badge">80% OFF - Oferta Limitada!</div>
+            </div>
+            
+            <a href="#comprar" class="cta-button">Quero Transformar Meu Negócio Agora!</a>
+        </div>
+    </section>
+
+    <!-- Timer Section -->
+    <section class="timer">
+        <div class="container">
+            <h3>⚡ OFERTA ESPECIAL TERMINA EM:</h3>
+            <div class="countdown" id="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">23</span>
+                    <span>Horas</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">59</span>
+                    <span>Minutos</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">30</span>
+                    <span>Segundos</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits section">
+        <div class="container">
+            <h2 class="section-title">Por que Este Curso Vai Revolucionar Seu Negócio?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🚀</div>
+                    <h3>Método Comprovado</h3>
+                    <p>Sistema testado e aprovado por mais de 2.500 empreendedores que aumentaram suas vendas em até 300%</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h3>ROI Garantido</h3>
+                    <p>Recupere o investimento já no primeiro mês aplicando as estratégias ensinadas no curso</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📱</div>
+                    <h3>100% Prático</h3>
+                    <p>Passo a passo detalhado para implementar hoje mesmo, mesmo sem conhecimento técnico</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎯</div>
+                    <h3>Foco em Resultados</h3>
+                    <p>Estratégias específicas para pequenos negócios com orçamento limitado mas grandes ambições</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📚</div>
+                    <h3>Conteúdo Completo</h3>
+                    <p>Mais de 50 videoaulas + templates + planilhas + suporte exclusivo</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">⏰</div>
+                    <h3>Acesso Vitalício</h3>
+                    <p>Estude no seu ritmo, quando e onde quiser, para sempre</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modules Section -->
+    <section class="modules section">
+        <div class="container">
+            <h2 class="section-title">O Que Você Vai Aprender</h2>
+            <div class="modules-grid">
+                <div class="module-card">
+                    <h3 class="module-title">Módulo 1: Fundamentos do Marketing Digital</h3>
+                    <p>• Mentalidade digital para pequenos negócios<br>
+                    • Definindo seu cliente ideal (persona)<br>
+                    • Mapeando a jornada do cliente<br>
+                    • Ferramentas gratuitas essenciais</p>
+                </div>
+                <div class="module-card">
+                    <h3 class="module-title">Módulo 2: Presença Digital Magnética</h3>
+                    <p>• Criando perfis que vendem<br>
+                    • Instagram e Facebook para negócios<br>
+                    • WhatsApp Business profissional<br>
+                    • Google Meu Negócio otimizado</p>
+                </div>
+                <div class="module-card">
+                    <h3 class="module-title">Módulo 3: Conteúdo que Converte</h3>
+                    <p>• Estratégia de conteúdo lucrativa<br>
+                    • Copywriting persuasivo<br>
+                    • Design no Canva profissional<br>
+                    • Calendário editorial estratégico</p>
+                </div>
+                <div class="module-card">
+                    <h3 class="module-title">Módulo 4: Vendas Digitais</h3>
+                    <p>• Funil de vendas automatizado<br>
+                    • Landing pages que convertem<br>
+                    • E-mail marketing lucrativo<br>
+                    • Checkout otimizado</p>
+                </div>
+                <div class="module-card">
+                    <h3 class="module-title">Módulo 5: Tráfego e Anúncios</h3>
+                    <p>• Facebook e Instagram Ads<br>
+                    • Google Ads para iniciantes<br>
+                    • Otimização de campanhas<br>
+                    • Análise de métricas importantes</p>
+                </div>
+                <div class="module-card">
+                    <h3 class="module-title">Módulo 6: Automatização e Escala</h3>
+                    <p>• Chatbots no WhatsApp<br>
+                    • Automações de marketing<br>
+                    • Sistemas de fidelização<br>
+                    • Escalando sem perder qualidade</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials section">
+        <div class="container">
+            <h2 class="section-title">Veja os Resultados de Quem Já Aplicou</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <p>"Em 3 meses, minha confeitaria saiu de R$ 2.000 para R$ 15.000 mensais! O curso me ensinou a vender online de forma profissional."</p>
+                    <div class="testimonial-author">- Maria Silva, Confeitaria Doce Vida</div>
+                </div>
+                <div class="testimonial">
+                    <p>"Nunca pensei que conseguiria criar anúncios que funcionam. Hoje tenho uma lista de espera de clientes querendo meus serviços!"</p>
+                    <div class="testimonial-author">- João Santos, Jardinagem & Paisagismo</div>
+                </div>
+                <div class="testimonial">
+                    <p>"O método é simples e funciona! Aumentei minhas vendas em 250% em apenas 2 meses aplicando as estratégias."</p>
+                    <div class="testimonial-author">- Ana Costa, Roupas Femininas</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee Section -->
+    <section class="guarantee">
+        <div class="container">
+            <h2>🛡️ Garantia Incondicional de 30 Dias</h2>
+            <div class="guarantee-badge">
+                <h3>100% Sem Riscos</h3>
+                <p>Se em 30 dias você não estiver completamente satisfeito ou não ver resultados concretos em seu negócio, devolvemos 100% do seu dinheiro sem fazer perguntas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="hero" id="comprar">
+        <div class="hero-content">
+            <h2>Não Perca Esta Oportunidade!</h2>
+            <p class="subtitle">Mais de 2.500 alunos já transformaram seus negócios. Seja o próximo!</p>
+            
+            <div class="price-highlight">
+                <div class="old-price">De R$ 497,00</div>
+                <div class="new-price">R$ 97,00</div>
+                <div class="discount-badge">Parcelado em até 12x de R$ 9,70</div>
+            </div>
+            
+            <a href="https://pay.cakto.com.br/p229djn_455378" class="cta-button" target="_blank">
+                🚀 SIM! QUERO MINHA VAGA AGORA!
+            </a>
+            
+            <p style="margin-top: 20px; opacity: 0.8;">
+                ✅ Acesso imediato após pagamento<br>
+                ✅ Certificado de conclusão<br>
+                ✅ Suporte por 90 dias<br>
+                ✅ Grupo VIP no Telegram
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Marketing Digital Descomplicado. Todos os direitos reservados.</p>
+            <p>CNPJ: 12.345.678/0001-95
+ | Termos de Uso | Política de Privacidade</p>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            tomorrow.setHours(0,0,0,0);
+            
+            const distance = tomorrow.getTime() - now;
+            
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.benefit-card, .module-card, .testimonial').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
